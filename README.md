@@ -35,6 +35,14 @@ config := &Config{Port: 8080}
 
 Config2 can automatically generate a FlagSet for your configuration structure and parse the command line arguments.
 
+Application can be launched with command line arguments.
+
+```
+./main -Debug -Host localhost -Port 9090
+```
+
+Use the ParseCommandLine function to parse the command line arguments as shown below.
+
 ```Golang
 flagSet := ParseCommandLine(os.Args, config)
 ```
