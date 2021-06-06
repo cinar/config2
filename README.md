@@ -4,6 +4,20 @@ Config2 is a lightweight Golang module for managing and populating application c
 
 ## Usage
 
+Install package as shown below.
+
+```bash
+go get github.com/cinar/config2
+```
+
+Import Config2 as shown below.
+
+```Golang
+import (
+  "github.com/cinar/config2
+)
+```
+
 Define a configuration structure as shown below.
 
 ```Golang
