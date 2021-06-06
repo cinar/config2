@@ -77,3 +77,26 @@ The command line arguments, their usage, and their defaults will be shown by the
   -Port
         Server port (default 8080)
 ```
+### Read from environment variables
+
+Config2 can read configuration from the environment variables.
+
+Application can be launched with the environment variables set as shown below.
+
+```bash
+export test_Host=localhost
+export test_Port=9090
+export test_Debug=true
+
+./main
+```
+
+Use the ParseEnvironmentVariables function to parse the environment variables. The function takes a prefix for the environment variables. Please set it to empty string oif no prefix needed. 
+
+```Golang
+ParseEnvironmentVariables("test_", config)
+```
+
+## License
+
+The source code is provided under [MIT License](LICENSE).

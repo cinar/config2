@@ -3,6 +3,7 @@ package config2
 import (
 	"flag"
 	"log"
+	"os"
 	"reflect"
 )
 
@@ -23,6 +24,7 @@ func checkConfig(config interface{}) {
 	}
 }
 
+// Parse command line arguments.
 func ParseCommandLine(args []string, config interface{}) *flag.FlagSet {
 	checkConfig(config)
 
@@ -47,4 +49,26 @@ func ParseCommandLine(args []string, config interface{}) *flag.FlagSet {
 	flagSet.Parse(args)
 
 	return flagSet
+}
+
+// Parse the environment variables.
+func ParseEnvironmentVariables(prefix string, config interface{}) {
+	checkConfig(config)
+
+	configType := reflect.TypeOf(config).Elem()
+	configValue := reflect.ValueOf(config).Elem()
+
+	for i := 0; i < configType.NumField(); i++ {
+		field := configType.Field(i)
+
+		value, ok := os.LookupEnv(prefix + field.Name)
+		if ok {
+			fv := &fieldValue{
+				Kind:  field.Type.Kind(),
+				Value: configValue.Field(i),
+			}
+
+			setFieldValue(fv, value)
+		}
+	}
 }
