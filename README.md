@@ -17,7 +17,7 @@ type Config struct {
 Config2 provides the following field tags for you to be able to define additional information for each configuration variable.
 
 Tag | Description | Example
-- | - | -
+--- | --- | ---
 usage | Usage for command line help. | `usage:"Server hostname"
 
 Define an instance of the configuration structure.
