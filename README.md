@@ -1,3 +1,5 @@
+[![GoDoc](https://godoc.org/github.com/cinar/config2?status.svg)](https://godoc.org/github.com/cinar/config2) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
+
 # Config2 Go
 
 Config2 is a lightweight Golang module for managing and populating application configuration from JSON, command line, and environment variables.
@@ -91,7 +93,7 @@ export test_Debug=true
 ./main
 ```
 
-Use the ParseEnvironmentVariables function to parse the environment variables. The function takes a prefix for the environment variables. Please set it to empty string oif no prefix needed. 
+Use the ParseEnvironmentVariables function to parse the environment variables. The function takes a prefix for the environment variables. Please set it to empty string if no prefix needed. 
 
 ```Golang
 ParseEnvironmentVariables("test_", config)
@@ -99,4 +101,4 @@ ParseEnvironmentVariables("test_", config)
 
 ## License
 
-The source code is provided under [MIT License](LICENSE).
+The source code is provided under MIT License.
