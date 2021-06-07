@@ -115,6 +115,14 @@ if err != nil {
 }
 ```
 
+### Parse all
+
+Config2 can parse the JSON file if exists, parse the environment variables, and parse the command line arguments.
+
+```Golang
+config2.ParseAll("test.json", "test_", config)
+```
+
 ## License
 
 The source code is provided under MIT License.

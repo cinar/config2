@@ -86,3 +86,10 @@ func ParseJson(fileName string, config interface{}) error {
 
 	return json.Unmarshal(data, config)
 }
+
+// Parse the JSON file if exists, parse the environment variables, and parse the command line arguments.
+func ParseAll(fileName string, prefix string, config interface{}) {
+	ParseJson(fileName, config)
+	ParseEnvironmentVariables(prefix, config)
+	ParseCommandLine(os.Args, config)
+}
