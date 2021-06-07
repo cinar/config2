@@ -106,7 +106,7 @@ Config2 can read configuration from a JSON file as well, such as the one below.
 }
 ```
 
-Use the ParseJson function to parse the JSON file.
+Use the [ParseJson](https://pkg.go.dev/github.com/cinar/config2#ParseJson) function to parse the JSON file.
 
 ```Golang
 err := config2.ParseJson("test.json", config)
@@ -118,6 +118,8 @@ if err != nil {
 ### Parse all
 
 Config2 can parse the JSON file if exists, parse the environment variables, and parse the command line arguments.
+
+Use the [ParseAll](https://pkg.go.dev/github.com/cinar/config2#ParseAll) function as shown below.
 
 ```Golang
 config2.ParseAll("test.json", "test_", config)
