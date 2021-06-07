@@ -1,7 +1,9 @@
 package config2
 
 import (
+	"encoding/json"
 	"flag"
+	"io/ioutil"
 	"log"
 	"os"
 	"reflect"
@@ -71,4 +73,16 @@ func ParseEnvironmentVariables(prefix string, config interface{}) {
 			setFieldValue(fv, value)
 		}
 	}
+}
+
+// Parse configuration variables from JSON file.
+func ParseJson(fileName string, config interface{}) error {
+	checkConfig(config)
+
+	data, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		return err
+	}
+
+	return json.Unmarshal(data, config)
 }

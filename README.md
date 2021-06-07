@@ -1,4 +1,5 @@
-[![GoDoc](https://godoc.org/github.com/cinar/config2?status.svg)](https://godoc.org/github.com/cinar/config2) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
+[![GoDoc](https://godoc.org/github.com/cinar/config2?status.svg)](https://godoc.org/github.com/cinar/config2) 
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 # Config2 Go
 
@@ -6,13 +7,13 @@ Config2 is a lightweight Golang module for managing and populating application c
 
 ## Usage
 
-Install package as shown below.
+Install package.
 
 ```bash
 go get github.com/cinar/config2
 ```
 
-Import Config2 as shown below.
+Import Config2.
 
 ```Golang
 import (
@@ -30,17 +31,11 @@ type Config struct {
 }
 ```
 
-Config2 provides the following field tags for you to be able to define additional information for each configuration variable.
+Config2 provides the following field tags to define additional information for configuration variables.
 
 Tag | Description | Example
 --- | --- | ---
 usage | Usage for command line help. | `usage:"Server hostname"
-
-Define an instance of the configuration structure.
-
-```Golang
-config := &Config{}
-```
 
 Set the default values for the configuration variables.
 
@@ -57,10 +52,10 @@ Application can be launched with command line arguments.
 ./main -Debug -Host localhost -Port 9090
 ```
 
-Use the ParseCommandLine function to parse the command line arguments as shown below.
+Use the [ParseCommandLine](https://pkg.go.dev/github.com/cinar/config2#ParseCommandLine) function to parse the command line arguments as shown below.
 
 ```Golang
-flagSet := ParseCommandLine(os.Args, config)
+flagSet := config2.ParseCommandLine(os.Args, config)
 ```
 
 Validate the configuration variables. In case of an error, show the usage through the returned FlagSet as shown below.
@@ -93,10 +88,31 @@ export test_Debug=true
 ./main
 ```
 
-Use the ParseEnvironmentVariables function to parse the environment variables. The function takes a prefix for the environment variables. Please set it to empty string if no prefix needed. 
+Use the [ParseEnvironmentVariables](https://pkg.go.dev/github.com/cinar/config2#ParseEnvironmentVariables) function to parse the environment variables. The function takes a prefix for the environment variables. Please set it to empty string ("") if no prefix needed. 
 
 ```Golang
-ParseEnvironmentVariables("test_", config)
+config2.ParseEnvironmentVariables("test_", config)
+```
+
+### Read from JSON file
+
+Config2 can read configuration from a JSON file as well, such as the one below.
+
+```JSON
+{
+  "Host": "localhost",
+  "Port": 9090,
+  "Debug": true
+}
+```
+
+Use the ParseJson function to parse the JSON file.
+
+```Golang
+err := config2.ParseJson("test.json", config)
+if err != nil {
+  log.Fatal(err)
+}
 ```
 
 ## License
