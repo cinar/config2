@@ -89,7 +89,7 @@ export test_Debug=true
 ./main
 ```
 
-Use the [ParseEnvironmentVariables](https://pkg.go.dev/github.com/cinar/config2#ParseEnvironmentVariables) function to parse the environment variables. The function takes a prefix for the environment variables. Please set it to empty string ("") if no prefix needed. 
+Use the [ParseEnvironmentVariables](https://pkg.go.dev/github.com/cinar/config2#ParseEnvironmentVariables) function to parse the environment variables. The function takes a prefix for the environment variables. Please set it to empty string ("") if no prefix is needed. 
 
 ```Golang
 config2.ParseEnvironmentVariables("test_", config)
@@ -118,7 +118,7 @@ if err != nil {
 
 ### Parse all
 
-Config2 can parse the JSON file if exists, parse the environment variables, and parse the command line arguments.
+Config2 can parse the JSON file if it exists, parse the environment variables, and parse the command line arguments.
 
 Use the [ParseAll](https://pkg.go.dev/github.com/cinar/config2#ParseAll) function as shown below.
 
