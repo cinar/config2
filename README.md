@@ -1,5 +1,6 @@
-[![GoDoc](https://godoc.org/github.com/cinar/config2?status.svg)](https://godoc.org/github.com/cinar/config2) 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+[![GoDoc](https://godoc.org/github.com/cinar/config2?status.svg)](https://godoc.org/github.com/cinar/config2)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.com/cinar/config2.svg?branch=master)](https://travis-ci.com/cinar/config2)
 
 # Config2 Go
 
